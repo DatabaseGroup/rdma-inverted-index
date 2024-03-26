@@ -1,0 +1,4 @@
+duckdb
+pymongo
+numpy
+tqdm

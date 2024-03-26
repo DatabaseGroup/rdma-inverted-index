@@ -1,0 +1,17 @@
+---
+BasedOnStyle: Google
+IndentWidth: 2
+---
+Language: Cpp
+AccessModifierOffset: -2
+AlignTrailingComments: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakBeforeMultilineStrings: false
+BinPackArguments: false
+BinPackParameters: false
+ContinuationIndentWidth: 2
+DerivePointerAlignment: false
+IndentCaseLabels: false
+TabWidth: 2
