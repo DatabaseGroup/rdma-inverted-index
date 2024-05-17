@@ -18,11 +18,11 @@ public:
     size_left_ = size;
 
 #ifdef NOHUGEPAGES
-    buffer = static_cast<T*>(std::aligned_alloc(64, buffer_size));
-    lib_assert(reinterpret_cast<u64>(buffer) % 64 == 0,
+    buffer_ = static_cast<T*>(std::aligned_alloc(64, buffer_size));
+    lib_assert(reinterpret_cast<u64>(buffer_) % 64 == 0,
                "Not cache-line aligned");
     std::cerr << "allocated ALIGNED MEM (no hugepage) at "
-              << reinterpret_cast<u64>(buffer) << " with buffer size "
+              << reinterpret_cast<u64>(buffer_) << " with buffer size "
               << buffer_size << std::endl;
 #else
     print_status("map huge page");
@@ -63,7 +63,7 @@ public:
 
   void deallocate() {
 #ifdef NOHUGEPAGES
-    std::free(buffer);
+    std::free(buffer_);
 #else
     munmap(static_cast<void*>(buffer_), buffer_size);
 #endif
