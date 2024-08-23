@@ -1,7 +1,22 @@
 # Scalable Distributed Inverted List Index in Disaggregated Memory
 
 Implementation of distributed inverted list indexing techniques under memory disaggregation.
-This is the source code of the paper "*Scalable Distributed Inverted List Index in Disaggregated Memory*" to be published at SIGMOD'24.
+This is the source code of the paper "*Scalable Distributed Inverted List Index in Disaggregated Memory*" published and presented at SIGMOD'24.
+
+### Citation
+```
+@article{10.1145/3654974,
+    author = {Widmoser, Manuel and Kocher, Daniel and Augsten, Nikolaus},
+    title = {Scalable Distributed Inverted List Indexes in Disaggregated Memory},
+    journal = {Proc. ACM Manag. Data},
+    publisher = {Association for Computing Machinery},
+    year = {2024},
+    volume = {2},
+    number = {3},
+    url = {https://doi.org/10.1145/3654974},
+    doi = {10.1145/3654974}
+}
+```
 
 ## Setup
 
