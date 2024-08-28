@@ -18,7 +18,7 @@ if __name__ == "__main__":
     queries = []
 
     with open(popular_terms_file) as f:
-        for line in f.readlines():
+        for line in f:
             term = line.split(":")[0].strip()
             popular_terms.append(term)
 

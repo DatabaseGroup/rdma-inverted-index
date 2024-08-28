@@ -3,15 +3,23 @@ from tqdm import tqdm
 
 
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        sys.exit(f"usage: ./{sys.argv[0]} <input-file> > <output-file>")
+
+    input_file = sys.argv[1]
+
     max_len = 0
     list_key = 0
     max_id = 0
 
-    with open("out.twitter_mpi") as f:
+    with open(input_file) as f:
+        num_lines = sum(1 for _ in f)
+
+    with open(input_file) as f:
         current_list = (list_key, [])
         prev_key = -1
 
-        for line in tqdm(f.readlines()):
+        for line in tqdm(f, total=num_lines):
             x, y = line.strip().split(" ")[:2]
             if x != '%':
                 if x == prev_key:
