@@ -40,7 +40,7 @@ void partition(Deserializer& deserializer,
   // initialize batches and virtually reserve 80 GBs to avoid doubling capacity
   for (u32 memory_node = 0; memory_node < num_nodes; ++memory_node) {
     meta_batches[memory_node] = {memory_node, universe_size, 0};  // num lists
-    index_batches[memory_node].reserve(80 * 1e9 / sizeof(u32) / num_nodes);
+    // index_batches[memory_node].reserve(80 * 1e9 / sizeof(u32) / num_nodes);  // TODO: uncomment for very large datasets
   }
 
   std::cerr << "universe size: " << universe_size << std::endl;
