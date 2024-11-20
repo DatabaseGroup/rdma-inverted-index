@@ -232,7 +232,7 @@ The code also compiles without InfiniBand network cards.
 
 For instance, to install the requirements on Debian, run the following command:
 ```
-apt-get -y install clang libboost-all-dev libibverbs1 libibverbs-dev numactl cmake libtbb-dev git git-lfs
+apt-get -y install clang libboost-all-dev libibverbs1 libibverbs-dev numactl cmake libtbb-dev git git-lfs python3-venv
 ```
 
 ### Nodes
@@ -367,18 +367,21 @@ tar -xvf twitter-mpi.tar.zst
 
 #### SSB
 
-Use the [SSB-DB generator](https://github.com/vadimtk/ssb-dbgen) (`dbgen -s 1 -T a`) to create the tables and store
-them in a directory called `tables`, then run
-
+To create the tables, we provide a script that uses the [SSB-DB generator](https://github.com/vadimtk/ssb-dbgen) (`dbgen -s 1 -T a`):
 ```bash
-python3 scripts/ssb/ssb.py > ssb-lists.txt
+cd scripts
+bash ssb/create_tables.sh
 ```
 
-to create the index file.
-The queries are generated using
-
+To create the index file and the queries, run the following:
 ```bash
-python3 scripts/ssb/generate_ssb_queries.py <num-queries> > ssb-queries.txt
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install -r requirements.txt
+cd ssb
+python3 ssb.py > ssb-lists.txt
+python3 generate_ssb_queries.py <num-queries> > ssb-queries.txt\
+deactivate
 ```
 
 #### CCNEWS
